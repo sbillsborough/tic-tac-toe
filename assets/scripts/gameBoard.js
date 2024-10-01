@@ -1,3 +1,3 @@
-export const gameBoard = {
-  gameBoardArray: [],
-};
+export const gameBoard = (function () {
+  const board = [];
+})();
