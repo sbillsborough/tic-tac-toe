@@ -1,3 +1,4 @@
 export const gameBoard = (function () {
-  const board = [];
+  const board = ["", "", "", "", "", "", "", "", ""];
+  console.log(board);
 })();
