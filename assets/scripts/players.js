@@ -7,24 +7,18 @@ export function Player(name, score, marker) {
   // Return an object exposing methods that interact with private variables
   return {
     // Get the player's name
-    getName: function () {
-      return `Player: ${_name}`;
-    },
+    getName: _name,
 
     // Get the player's score
-    getScore: function () {
-      return `${_name}'s score is: ${_score}`;
-    },
-
-    // Get the player's marker
-    getMarker: function () {
-      return `${_name}'s marker is ${marker}`;
-    },
+    getScore: _score,
 
     // Increase the player's score
     increaseScore: function () {
       _score++;
     },
+
+    // Get the player's marker
+    getMarker: marker,
   };
 }
 
