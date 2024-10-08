@@ -18,7 +18,7 @@ export function Player(name, score, marker) {
     },
 
     // Get the player's marker
-    getMarker: marker,
+    marker: marker,
   };
 }
 

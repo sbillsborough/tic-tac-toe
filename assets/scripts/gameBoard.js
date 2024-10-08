@@ -26,7 +26,7 @@ document.addEventListener("click", (e) => {
 
     // Check if the cell is already taken (i.e., does not contain a number), the  place player1's marker (X) in the cell
     if (!["X", "O"].includes(cell.textContent)) {
-      cell.textContent = player1.getMarker;
+      cell.textContent = player1.marker;
 
       setTimeout(computerMove, 500); // Delay to simulate computer thinking
     }
@@ -47,6 +47,6 @@ function computerMove() {
   if (availableCells.length > 0) {
     const randomCell =
       availableCells[Math.floor(Math.random() * availableCells.length)];
-    randomCell.textContent = player2.getMarker;
+    randomCell.textContent = player2.marker;
   }
 }
