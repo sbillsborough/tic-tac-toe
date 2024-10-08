@@ -3,7 +3,7 @@ import { player2 } from "./players.js";
 
 // Draws the game board and adds classes/attributes
 export const gameBoard = (function () {
-  const boardArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  const boardArray = ["", "", "", "", "", "", "", "", ""];
   const boardContainerEl = document.querySelector(".board-container");
 
   // Loop through the boardArray and create a div for each element
