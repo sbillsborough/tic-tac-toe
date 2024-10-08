@@ -1,4 +1,5 @@
 import { player1 } from "./players.js";
+import { player2 } from "./players.js";
 
 // Draws the game board and adds classes/attributes
 export const gameBoard = (function () {
@@ -16,7 +17,7 @@ export const gameBoard = (function () {
   });
 })();
 
-// Updates the display
+// Updates the display and event listener for player1's move
 export const boardCell = document.querySelector(".board-cell");
 document.addEventListener("click", (e) => {
   // Ensure the clicked element is a board cell
@@ -26,6 +27,26 @@ document.addEventListener("click", (e) => {
     // Check if the cell is already taken (i.e., does not contain a number), the  place player1's marker (X) in the cell
     if (!["X", "O"].includes(cell.textContent)) {
       cell.textContent = player1.getMarker;
+
+      setTimeout(computerMove, 500); // Delay to simulate computer thinking
     }
   }
 });
+
+// Helper function to check available cells
+function getAvailableCells() {
+  const cells = document.querySelectorAll(".board-cell");
+  return Array.from(cells).filter(
+    (cell) => !["X", "O"].includes(cell.textContent)
+  );
+}
+
+// Computer (player2) makes a move by choosing a random available cell
+function computerMove() {
+  const availableCells = getAvailableCells();
+  if (availableCells.length > 0) {
+    const randomCell =
+      availableCells[Math.floor(Math.random() * availableCells.length)];
+    randomCell.textContent = player2.getMarker;
+  }
+}
