@@ -1,5 +1,6 @@
 import { player1 } from "./players.js";
 import { player2 } from "./players.js";
+import { winCombinations } from "./gameFlow.js";
 
 // Draws the game board and adds classes/attributes
 export const gameBoard = (function () {
