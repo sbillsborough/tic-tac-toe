@@ -34,6 +34,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Helper function to get the current board state
+function getBoardState() {
+  const cells = document.querySelectorAll(".board-cell");
+  return Array.from(cells).map((cell) => cell.textContent);
+}
+
 // Helper function to check available cells
 function getAvailableCells() {
   const cells = document.querySelectorAll(".board-cell");
