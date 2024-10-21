@@ -48,9 +48,44 @@ function getAvailableCells() {
   );
 }
 
-// Computer (player2) makes a move by choosing a random available cell
+// Helper function to check if a player can win
+function checkWin(marker, boardState) {
+  return winCombinations.find((combination) => {
+    const [a, b, c] = combination;
+    return (
+      boardState[a] === marker &&
+      boardState[b] === marker &&
+      boardState[c] === ""
+    );
+  });
+}
+
+// Computer (player2) makes a move by checking win/block or choosing a random cell
 function computerMove() {
+  const boardState = getBoardState();
   const availableCells = getAvailableCells();
+
+  // Check if player2 (computer) can win in this move
+  let winMove = checkWin(player2.marker, boardState);
+  if (winMove) {
+    const winningCell = document.querySelector(
+      `[data-index="${winMove.find((index) => boardState[index] === "")}"]`
+    );
+    winningCell.textContent = player2.marker;
+    return;
+  }
+
+  // Check if player1 is about to win, and block them
+  let blockMove = checkWin(player1.marker, boardState);
+  if (blockMove) {
+    const blockingCell = document.querySelector(
+      `[data-index="${blockMove.find((index) => boardState[index] === "")}"]`
+    );
+    blockingCell.textContent = player2.marker;
+    return;
+  }
+
+  // If no win/block move, make a random move
   if (availableCells.length > 0) {
     const randomCell =
       availableCells[Math.floor(Math.random() * availableCells.length)];
