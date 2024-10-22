@@ -5,11 +5,11 @@ import { winCombinations } from "./gameFlow.js";
 // Draws the score board
 export const scoreBoard = (function () {
   const scoreContainerEl = document.querySelector(".scores-container");
-  const scorePara = document.createElement("p");
-  scorePara.classList.add("score-paragraph");
-  scorePara.textContent = `test`;
+  const scoreParaEl = document.createElement("p");
+  scoreParaEl.classList.add("score-paragraph");
+  scoreParaEl.textContent = `test`;
 
-  scoreContainerEl.appendChild(scorePara);
+  scoreContainerEl.appendChild(scoreParaEl);
 })();
 
 // Draws the game board and adds classes/attributes
