@@ -2,6 +2,16 @@ import { player1 } from "./players.js";
 import { player2 } from "./players.js";
 import { winCombinations } from "./gameFlow.js";
 
+// Draws the score board
+export const scoreBoard = (function () {
+  const scoreContainerEl = document.querySelector(".scores-container");
+  const scorePara = document.createElement("p");
+  scorePara.classList.add("score-paragraph");
+  scorePara.textContent = `test`;
+
+  scoreContainerEl.appendChild(scorePara);
+})();
+
 // Draws the game board and adds classes/attributes
 export const gameBoard = (function () {
   const boardArray = ["", "", "", "", "", "", "", "", ""];
