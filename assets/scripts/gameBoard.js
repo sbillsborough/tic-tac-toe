@@ -49,7 +49,7 @@ function getAvailableCells() {
 }
 
 // Helper function to check if a player can win
-function checkWin(marker, boardState) {
+export function checkWin(marker, boardState) {
   return winCombinations.find((combination) => {
     const [a, b, c] = combination;
     return (
@@ -61,7 +61,7 @@ function checkWin(marker, boardState) {
 }
 
 // Computer (player2) makes a move by checking win/block or choosing a random cell
-function computerMove() {
+export function computerMove() {
   const boardState = getBoardState();
   const availableCells = getAvailableCells();
 
