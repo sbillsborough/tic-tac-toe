@@ -1,6 +1,7 @@
 import { player1 } from "./players.js";
 import { player2 } from "./players.js";
 import { winCombinations } from "./gameFlow.js";
+import { checkAndIncrementScore } from "./scoreBoard.js";
 
 // Draws the game board and adds classes/attributes
 export const gameBoard = (function () {
@@ -28,14 +29,18 @@ document.addEventListener("click", (e) => {
     // Check if the cell is already taken (i.e., does not contain a number), the  place player1's marker (X) in the cell
     if (!["X", "O"].includes(cell.textContent)) {
       cell.textContent = player1.marker;
+      checkAndIncrementScore();
 
-      setTimeout(computerMove, 500); // Delay to simulate computer thinking
+      setTimeout(() => {
+        computerMove();
+        checkAndIncrementScore();
+      }, 500);
     }
   }
 });
 
 // Helper function to get the current board state
-function getBoardState() {
+export function getBoardState() {
   const cells = document.querySelectorAll(".board-cell");
   return Array.from(cells).map((cell) => cell.textContent);
 }

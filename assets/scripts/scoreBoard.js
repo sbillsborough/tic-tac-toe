@@ -1,5 +1,7 @@
 import { checkWin } from "./gameBoard.js";
-import { computerMove } from "./gameBoard.js";
+import { getBoardState } from "./gameBoard.js";
+import { player1 } from "./players.js";
+import { player2 } from "./players.js";
 
 // Function to increment score
 let playerScore = 0;
@@ -11,21 +13,17 @@ function incrementScore(winner) {
   } else if (winner === "computer") {
     computerScore++;
   }
+  updateScoreBoard();
 }
 
 // Check winner and increment score
-function checkAndIncrementScore() {
-  if (checkWin(playerMarker, boardState)) {
+export function checkAndIncrementScore() {
+  const boardState = getBoardState();
+  if (checkWin(player1.marker, boardState)) {
     incrementScore("player");
-  } else if (checkWin(computerMarker, boardState)) {
+  } else if (checkWin(player2.marker, boardState)) {
     incrementScore("computer");
   }
-}
-
-// Updates the score board
-function updateScoreBoard() {
-  const scoreParaEl = document.querySelector(".score-paragraph");
-  scoreParaEl.textContent = `Player 1 score: ${playerScore} | Computer score: ${computerScore}`;
 }
 
 // Draws the score board
@@ -37,3 +35,9 @@ export const scoreBoard = (function () {
 
   scoreContainerEl.appendChild(scoreParaEl);
 })();
+
+// Updates the score board
+function updateScoreBoard() {
+  const scoreParaEl = document.querySelector(".score-paragraph");
+  scoreParaEl.textContent = `Player 1 score: ${playerScore} | Computer score: ${computerScore}`;
+}
