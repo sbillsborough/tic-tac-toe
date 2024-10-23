@@ -1,7 +1,5 @@
-import { checkWin } from "./gameBoard.js";
-import { getBoardState } from "./gameBoard.js";
-import { player1 } from "./players.js";
-import { player2 } from "./players.js";
+import { getBoardState, checkWin } from "./gameBoard.js";
+import { player1, player2 } from "./players.js";
 
 // Function to increment score
 let playerScore = 0;

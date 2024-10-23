@@ -1,5 +1,3 @@
 import { scoreBoard } from "./scoreBoard.js";
-import { gameBoard } from "./gameBoard.js";
-import { player1 } from "./players.js";
-import { player2 } from "./players.js";
-import { boardCell } from "./gameBoard.js";
+import { gameBoard, boardCell } from "./gameBoard.js";
+import { player1, player2 } from "./players.js";

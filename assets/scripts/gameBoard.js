@@ -1,5 +1,5 @@
-import { player1 } from "./players.js";
-import { player2 } from "./players.js";
+import { player1, player2 } from "./players.js";
+
 import { winCombinations } from "./gameFlow.js";
 import { checkAndIncrementScore } from "./scoreBoard.js";
 
