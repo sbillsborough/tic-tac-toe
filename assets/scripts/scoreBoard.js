@@ -1,4 +1,5 @@
 import { checkWin } from "./gameBoard.js";
+import { computerMove } from "./gameBoard.js";
 
 // Function to increment score
 let playerScore = 0;
@@ -19,6 +20,12 @@ function checkAndIncrementScore() {
   } else if (checkWin(computerMarker, boardState)) {
     incrementScore("computer");
   }
+}
+
+// Updates the score board
+function updateScoreBoard() {
+  const scoreParaEl = document.querySelector(".score-paragraph");
+  scoreParaEl.textContent = `Player 1 score: ${playerScore} | Computer score: ${computerScore}`;
 }
 
 // Draws the score board
