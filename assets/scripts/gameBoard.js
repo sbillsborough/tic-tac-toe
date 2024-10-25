@@ -64,6 +64,18 @@ export function checkWin(marker, boardState) {
   });
 }
 
+// Helper function to check if the computer can block
+function checkBlock(marker, boardState) {
+  return winCombinations.find((combination) => {
+    const [a, b, c] = combination;
+    return (
+      boardState[a] === marker &&
+      boardState[b] === marker &&
+      boardState[c] === ""
+    );
+  });
+}
+
 // Computer (player2) makes a move by checking win/block or choosing a random cell
 export function computerMove() {
   const boardState = getBoardState();
