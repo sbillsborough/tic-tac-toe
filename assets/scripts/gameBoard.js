@@ -92,7 +92,7 @@ export function computerMove() {
   }
 
   // Check if player1 is about to win, and block them
-  let blockMove = checkWin(player1.marker, boardState);
+  let blockMove = checkBlock(player1.marker, boardState);
   if (blockMove) {
     const blockingCell = document.querySelector(
       `[data-index="${blockMove.find((index) => boardState[index] === "")}"]`
