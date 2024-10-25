@@ -1,5 +1,4 @@
 import { player1, player2 } from "./players.js";
-
 import { winCombinations } from "./gameFlow.js";
 import { checkAndIncrementScore } from "./scoreBoard.js";
 
@@ -60,7 +59,7 @@ export function checkWin(marker, boardState) {
     return (
       boardState[a] === marker &&
       boardState[b] === marker &&
-      boardState[c] === ""
+      boardState[c] === marker
     );
   });
 }
