@@ -1,4 +1,4 @@
-import { getBoardState, checkWin } from "./gameBoard.js";
+import { getBoardState, checkWin, gameBoard } from "./gameBoard.js";
 import { player1, player2 } from "./players.js";
 
 // Function to increment score
@@ -12,6 +12,7 @@ function incrementScore(winner) {
     computerScore++;
   }
   updateScoreBoard();
+  gameBoard();
 }
 
 // Check winner and increment score
@@ -33,7 +34,7 @@ export const scoreBoard = (function () {
   const scoreContainerEl = document.querySelector(".scores-container");
   const scoreParaEl = document.createElement("p");
   scoreParaEl.classList.add("score-paragraph");
-  scoreParaEl.textContent = `Player 1 score: ${playerScore} | Computer score: ${computerScore}`;
+  scoreParaEl.textContent = `Player score: ${playerScore} | Computer score: ${computerScore}`;
 
   scoreContainerEl.appendChild(scoreParaEl);
 })();
@@ -41,5 +42,5 @@ export const scoreBoard = (function () {
 // Updates the score board
 function updateScoreBoard() {
   const scoreParaEl = document.querySelector(".score-paragraph");
-  scoreParaEl.textContent = `Player 1 score: ${playerScore} | Computer score: ${computerScore}`;
+  scoreParaEl.textContent = `Player score: ${playerScore} | Computer score: ${computerScore}`;
 }
