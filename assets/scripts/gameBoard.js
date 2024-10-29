@@ -3,9 +3,10 @@ import { winCombinations } from "./gameFlow.js";
 import { checkAndIncrementScore } from "./scoreBoard.js";
 
 // Draws the game board and adds classes/attributes
-export const gameBoard = (function () {
+export function gameBoard() {
   const boardArray = ["", "", "", "", "", "", "", "", ""];
   const boardContainerEl = document.querySelector(".board-container");
+  boardContainerEl.innerHTML = ""; // Clear the game board for a fesh start
 
   // Loop through the boardArray and create a div for each element
   boardArray.forEach((element, index) => {
@@ -16,7 +17,7 @@ export const gameBoard = (function () {
 
     boardContainerEl.appendChild(cellDiv);
   });
-})();
+}
 
 // Updates the display and event listener for player1's move
 export const boardCell = document.querySelector(".board-cell");
@@ -108,3 +109,10 @@ export function computerMove() {
     randomCell.textContent = player2.marker;
   }
 }
+
+// Function to reset board and score for a new game
+export function resetGame() {
+  gameBoard();
+}
+
+resetGame();

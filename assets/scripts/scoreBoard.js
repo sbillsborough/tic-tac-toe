@@ -1,4 +1,4 @@
-import { getBoardState, checkWin, gameBoard } from "./gameBoard.js";
+import { getBoardState, checkWin, resetGame } from "./gameBoard.js";
 import { player1, player2 } from "./players.js";
 
 // Function to increment score
@@ -12,7 +12,6 @@ function incrementScore(winner) {
     computerScore++;
   }
   updateScoreBoard();
-  gameBoard();
 }
 
 // Check winner and increment score
@@ -23,8 +22,10 @@ export function checkAndIncrementScore() {
     const boardState = getBoardState();
     if (checkWin(player1.marker, boardState)) {
       incrementScore("player");
+      resetGame();
     } else if (checkWin(player2.marker, boardState)) {
       incrementScore("computer");
+      resetGame();
     }
   }
 }
