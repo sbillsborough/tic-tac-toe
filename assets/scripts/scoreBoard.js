@@ -16,17 +16,20 @@ function incrementScore(winner) {
 
 // Check winner and increment score
 export function checkAndIncrementScore() {
-  if (playerScore || computerScore) {
+  const boardState = getBoardState();
+
+  // Check if player1 has won
+  if (checkWin(player1.marker, boardState)) {
+    incrementScore("player");
+    resetGame();
     return;
-  } else {
-    const boardState = getBoardState();
-    if (checkWin(player1.marker, boardState)) {
-      incrementScore("player");
-      resetGame();
-    } else if (checkWin(player2.marker, boardState)) {
-      incrementScore("computer");
-      resetGame();
-    }
+  }
+
+  // Check if player2 has won
+  if (checkWin(player2.marker, boardState)) {
+    incrementScore("computer");
+    resetGame();
+    return;
   }
 }
 
