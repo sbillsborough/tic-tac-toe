@@ -21,6 +21,7 @@ export function checkAndIncrementScore() {
   // Check if player1 has won
   if (checkWin(player1.marker, boardState)) {
     incrementScore("player");
+    alert("Player wins!");
     resetGame();
     return;
   }
@@ -28,6 +29,14 @@ export function checkAndIncrementScore() {
   // Check if player2 has won
   if (checkWin(player2.marker, boardState)) {
     incrementScore("computer");
+    alert("Computer wins!");
+    resetGame();
+    return;
+  }
+
+  // Check for a draw (i.e., no empty cells and no winner)
+  if (boardState.every((cell) => cell === "X" || cell === "O")) {
+    alert("It's a draw!");
     resetGame();
     return;
   }
