@@ -17,7 +17,10 @@ body {
 .scores-container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2rem;
+  height: 100px;
 }
 
 .board-container {
@@ -26,7 +29,6 @@ body {
   grid-template-rows: repeat(3, 100px);
   gap: 5px;
   justify-content: center;
-  margin-top: 10px;
 }
 
 .board-cell {
@@ -38,5 +40,5 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 24px;
+  font-size: 3rem;
 }
