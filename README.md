@@ -41,6 +41,7 @@ Open the index.html in any modern browser.
 - Player clicks the square in which they would like to place their marker.
 - Winning moves are then checked and if the computer can make a winning move it does so or if the computer can block the player from winning it will do so.
 - Alerts are displayed at the end of each round stating who has won or if the round was a draw.
+- Scores are updated accordingly
 - Fully responsive using flex and grid.
 
 To-do list:
